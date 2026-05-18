@@ -53,7 +53,6 @@ const App = () => {
       <TodoForm onSubmit={addTodo} />
       {/* TODO LIST */}
       <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
-      {/* pending */}
     </main>
   )
 }
