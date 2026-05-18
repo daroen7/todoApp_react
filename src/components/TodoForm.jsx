@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const TodoForm = ({onSubmit}) => {
+const TodoForm = ({ onSubmit }) => {
   const [newItem, setNewItem] = useState("")
 
   const handleSubmit = (e) => {
@@ -18,9 +18,17 @@ const TodoForm = ({onSubmit}) => {
         <form onSubmit={handleSubmit}>
           <div>
             <label htmlFor="new-item"></label>
-            <input value={newItem} onChange={(e) => setNewItem(e.target.value)} type="text" id="new-item" />
+            <input
+              value={newItem}
+              onChange={(e) => setNewItem(e.target.value)}
+              type="text"
+              id="new-item"
+              placeholder="Tambahkan tugas"
+            />
           </div>
-          <button>Tambah</button>
+          <button
+            className="text-primary-tint hover:text-ink"
+          >Tambah</button>
         </form>
       </div>
 

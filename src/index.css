@@ -7,11 +7,53 @@ body {
   width: 100dvw;
   overflow: hidden;
   height: 100dvh;
-  background-color: midnightblue;
-  color: beige;
+  background-color: var(--color-surface);
+  color: var(--color-text);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+@theme {
+  /* Primary */
+  --color-primary: #5C6FC4;
+  --color-primary-light: #7B8FD4;
+  --color-primary-tint: #EEF0FA;
+  --color-primary-dark: #3D4FA8;
+
+  /* Neutral */
+  --color-surface: #F6F7FB;
+  --color-border: #E5E7F0;
+  --color-muted: #A3AECB;
+  --color-ink: #2C3350;
+
+  /* Semantic */
+  --color-success: #2A8C6C;
+  --color-success-tint: #E6F4EF;
+  --color-urgent: #D05A3A;
+  --color-urgent-tint: #FFF0ED;
+  --color-warning: #C49A28;
+}
+
+:root {
+  /* Primary */
+  --color-primary: #5C6FC4;
+  --color-primary-light: #7B8FD4;
+  --color-primary-tint: #EEF0FA;
+  --color-primary-dark: #3D4FA8;
+
+  /* Neutral */
+  --color-surface: #F6F7FB;
+  --color-border: #E5E7F0;
+  --color-muted: #6B7A9F;
+  --color-ink: #2C3350;
+
+  /* Semantic */
+  --color-success: #2A8C6C;
+  --color-success-tint: #E6F4EF;
+  --color-urgent: #D05A3A;
+  --color-urgent-tint: #FFF0ED;
+  --color-warning: #C49A28;
 }
 
 @theme {
@@ -21,22 +63,38 @@ body {
 }
 
 @layer base {
+    html {
+    min-width: 320px;
+    overflow-x: hidden;
+  }
+
+  body {
+    min-width: 320px;
+  }
+
+
   main {
     @apply w-dvw h-dvh overflow-hidden;
-    ;
+    min-width: 320px;
   }
 
   nav {
-    @apply w-full h-16 bg-black/30 backdrop-blur-sm flex items-center justify-between px-4;
+    @apply w-full h-16 flex items-center justify-between px-6;
+    @apply border-b border-border;
   }
 }
 
 @layer components {
   #quotes {
-    @apply flex flex-col items-center justify-center bg-white/20 h-[5rem] ;
-    
+    @apply flex flex-col items-center justify-center bg-white/20;
+    @apply min-h-[5rem] py-4 px-4 text-center;
+
     h2 {
-      @apply text-[20px]
+      @apply text-[20px] leading-snug;
+    }
+
+    h3 {
+      @apply text-sm text-ink mt-1;
     }
   }
 
@@ -58,11 +116,24 @@ body {
   }
 
   #todoList {
-    @apply flex justify-center items-center bg-black;
+    @apply flex justify-center items-center bg-primary-light;
 
     .list-container {
-      @apply flex justify-center bg-white/40 w-80 h-80 my-5 p-3 rounded-xl;
+      @apply flex justify-center bg-white/40 border border-border text-ink w-80 h-80 my-5 p-3 rounded-xl;
 
+
+    }
+  }
+
+  #todo-item {
+    @apply flex justify-between bg-white/20 w-[16rem] px-3 py-2;
+
+    label {
+      @apply flex gap-2 justify-center items-center text-lg font-bold
+    }
+
+    button {
+      @apply text-border font-bold rounded-xl p-1.5 text-sm text-urgent
     }
   }
 }
