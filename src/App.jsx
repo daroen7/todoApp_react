@@ -11,6 +11,7 @@ const App = () => {
     if (localValue == null) return []
     return JSON.parse(localValue)
   })
+  const [filter, setFilter] = useState('all')
 
   useEffect(() => {
     localStorage.setItem("ITEMS", JSON.stringify(todos))
@@ -20,7 +21,9 @@ const App = () => {
     setTodos(currentTodo => {
       return [
         ...currentTodo, {
-          id: crypto.randomUUID(), title, completed: false
+          id: crypto.randomUUID(),
+          title,
+          completed: false
         }
       ]
     })
@@ -45,14 +48,20 @@ const App = () => {
   return (
     <main>
       {/* NAVBAR */}
-      <Navbar />
+      <Navbar onSetFilter={setFilter}/>
 
       {/* QUOTES */}
       <Quotes />
       {/* TODO FORM */}
       <TodoForm onSubmit={addTodo} />
       {/* TODO LIST */}
-      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
+      <TodoList
+        todos={todos}
+        filter={filter}
+        onSetFilter={setFilter}
+        toggleTodo={toggleTodo}
+        deleteTodo={deleteTodo}
+      />
     </main>
   )
 }

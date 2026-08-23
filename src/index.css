@@ -14,6 +14,32 @@ body {
   background-position: center;
 }
 
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* background-color: #2A8C6C; */
+  width: 16em;
+  height: 4em;
+}
+
+.button-navbar {
+  background-color: #3D4FA8;
+  color: #E5E7F0;
+  border: 1px solid beige;
+  border-radius: 6px;
+  width: 6em;
+  height: 2em;
+  font-size: small;
+  cursor: pointer;
+}
+
+.button-navbar:hover {
+  background-color: beige;
+  color: #3D4FA8;
+  border: 1px solid midnightblue;
+}
+
 @theme {
   /* Primary */
   --color-primary: #5C6FC4;
